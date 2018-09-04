@@ -1,0 +1,253 @@
+.navbar-default{
+  background: white !important;
+  border : 0;
+}
+
+.navbar-default > .container{
+  margin : 0 !important;
+  width : 100%
+}
+
+.navbar-default > .container > div > div > img{
+  height : 82px;
+  min-height : 82px;
+  min-width : 82px;
+  max-height : 82px;
+  max-width : 82px;
+  width : 82px;
+  cursor: pointer;
+}
+
+.navbar-default > .container > div{
+  display: flex;
+  justify-content: space-between;
+  padding : 1% 6%;
+}
+.btn-default{
+  margin-top : 20px;
+  border: 2px solid #8C43FF !important;
+  color : #8C43FF !important;
+  height : 42px;
+}
+
+.btn-default:hover{
+  background: #8C43FF !important;
+  color : white !important; 
+  transition: 0.5s;
+}
+
+.typedDiv{
+  display : flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.typedDiv > span > span{
+  font-size: 40px;
+  font-weight: bold;
+}
+@media only screen and (max-width: 992px) {
+  .typedDiv > span > span{
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .paraStyle{
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin : 15px !important;
+  }
+}
+@media only screen and (max-width: 775px) {
+  .typedDiv > span > span{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .paraStyle{
+    font-size: 13px !important;
+    letter-spacing: 0 !important;
+    margin : 15px !important;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .typedDiv > span > span{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .paraStyle{
+    font-size: 10px !important;
+    letter-spacing: 0 !important;
+    margin : 15px !important;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .typedDiv > span > span{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .paraStyle{
+    font-size: 10px !important;
+    letter-spacing: 0 !important;
+    margin : 15px !important;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .typedDiv > span > span{
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .paraStyle{
+    font-size: 8px !important;
+    letter-spacing: 0 !important;
+    margin : 15px !important;
+  }
+}
+
+.paraStyle{
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin : 15px !important;
+}
+
+.imageDiv{
+  display: flex;
+  justify-content: center;
+  height: 780px; 
+}
+@media only screen and (max-width: 775px) {
+  .imageDiv{
+    display: flex;
+    justify-content: center;
+    height: 740px; 
+  }
+}
+@media only screen and (max-width: 640px) {
+  .imageDiv{
+    display: flex;
+    justify-content: center;
+    height: 690px; 
+  }
+}
+@media only screen and (max-width: 480px) {
+  .imageDiv{
+    display: flex;
+    justify-content: center;
+    height: 620px; 
+  }
+}
+@media only screen and (max-width: 420px) {
+  .imageDiv{
+    display: flex;
+    justify-content: center;
+    height: 600px; 
+  }
+}
+@media only screen and (max-width: 335px) {
+  .imageDiv{
+    display: flex;
+    justify-content: center;
+    height: 570px; 
+  }
+}
+
+.imageDiv > img{
+  margin-top: 30px;
+  position: absolute;
+  height: 330px;
+  width: 330px;
+}
+
+.imageDiv > img:nth-child(2){
+  margin-top: 30px;
+  height: 251px;
+  width: 170px;
+}
+
+.imageDiv > img:nth-child(3){
+  margin-top: 430px;
+  height: auto;
+  width: 100%;
+  max-width: 860px;
+}
+
+.aboutDiv{
+  background: #8C43FF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding: 7%;
+}
+
+@media only screen and (max-width: 535px) {
+  .aboutDiv > h3{
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .aboutDiv > h3{
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+@media only screen and (max-width: 435px) {
+  .aboutDiv > h3{
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .aboutDiv > h3{
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .aboutDiv > h3{
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .aboutDiv > h3{
+    font-size: 40px;
+    font-weight: bold;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .aboutDiv > p{
+    font-size: 17px;
+  }
+}
+
+@media only screen and (max-width: 705px) {
+  .aboutDiv > p{
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .aboutDiv > p{
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .aboutDiv > p{
+    font-size: 9px;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .aboutDiv > p{
+    font-size: 8px;
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  .aboutDiv > p{
+    font-size: 6px;
+  }
+}
