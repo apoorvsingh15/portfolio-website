@@ -404,3 +404,58 @@
 .blogImage:hover{
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
+
+.sliderSettings{
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+
+.roundedImage{
+  margin-top : 3%;
+  height: 20%;
+  width: 20%;
+  border-radius: 50%; 
+}
+
+.centeredTextImg{
+  text-align: center;
+  font-weight: bold;
+}
+
+.upSpace{
+  margin-top: 8%;
+  padding-bottom: 0px !important;
+}
+
+.roundedImageFooter{
+  height: 20%;
+  width: 20%;
+  border-radius: 50%; 
+}
+
+.socialIcons{
+  display: flex;
+  width: 40%;
+  justify-content: space-around;
+  margin-top: 3%;
+}
+
+.iconSize{
+ font-size: 200%;
+}
+
+.textDecorateIcons{
+  text-decoration: none;  
+  color : white;
+}
+
+.textDecorateIcons:hover{
+  text-decoration: none;  
+  color : white;
+}
+
+.textFooter{
+  text-align: center;
+  margin-top: 2%;
+}
