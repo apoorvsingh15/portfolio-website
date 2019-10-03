@@ -1,2 +1,2 @@
 The website is live at :
-www.beingapoorv.com
+www.beingapoorv.netlify.com
