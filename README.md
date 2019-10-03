@@ -1,2 +1,2 @@
 The website is live at :
-beingapoorv.netlify.com
+[www.beingapoorv.com](beingapoorv.netlify.com)
