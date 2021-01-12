@@ -5,17 +5,17 @@ export default class TypedComponent extends PureComponent{
         return(
             <Fragment>
                 <div className='typedDiv'>
-                    <Typed 
+                    <Typed
                         strings={[
                             'Hello! This is Apoorv Singh',
                             'Front-end Web Developer ',
                             'Specializing in React.js Framework',
                             'React Native Developer',
                             'Mobile Development - IOS, Android'
-                        ]} 
-                        loop 
-                        typeSpeed={15}
-                        backSpeed={25} 
+                        ]}
+                        loop
+                        typeSpeed={25}
+                        backSpeed={40}
                     />
                     <p className='paraStyle'>I design and code beautifully simple things, and I love what I do.</p>
                 </div>

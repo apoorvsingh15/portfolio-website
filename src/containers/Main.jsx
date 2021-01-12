@@ -12,6 +12,7 @@ import {
     Row,
     Col
 } from 'react-bootstrap';
+import { SkillBar } from '../components/SkillBar';
 export default class Main extends PureComponent{
     constructor(props){
         super(props);
@@ -34,7 +35,7 @@ export default class Main extends PureComponent{
            })
         }
     }
-    
+
     render(){
         const settings = {
             dots: true,
@@ -53,8 +54,8 @@ export default class Main extends PureComponent{
                     <Row className='rowMargin'>
                         <Col>
                             <Col xs={12} sm={12} md={4} lg={4}>
-                                <CardComponent 
-                                    image={<Image src={require('../assets/frontend-dev.svg')}/>} 
+                                <CardComponent
+                                    image={<Image src={require('../assets/frontend-dev.svg')}/>}
                                     title={'Front-end Developer'}
                                     about={'Front-end developer specializing in react.js framework, I work to turn ideas into reality.'}
                                     heading={'Languages I speak:'}
@@ -75,7 +76,7 @@ export default class Main extends PureComponent{
                                 />
                             </Col>
                             <Col xs={12} sm={12} md={4} lg={4}>
-                                <CardComponent 
+                                <CardComponent
                                     image={<Image src={require('../assets/blogger-dev.svg')}/>}
                                     title={'Blogger'}
                                     about={'A budding blogger. Mainly like to write about life and javascript because I find them similar.'}
@@ -97,8 +98,8 @@ export default class Main extends PureComponent{
                                 <div className='insideBox'>
                                     <p>Projects</p>
                                     {this.state.enableCounter === true ?
-                                    <p><CountUp end={10} duration={5} /><span>+</span></p>:
-                                    <p>10+</p>    
+                                    <p><CountUp end={25} duration={5} /><span>+</span></p>:
+                                    <p>25+</p>
                                 }
                                 </div>
                             </Col>
@@ -106,8 +107,8 @@ export default class Main extends PureComponent{
                                 <div className='insideBox'>
                                     <p>Lines of Code</p>
                                     {this.state.enableCounter === true ?
-                                    <p><CountUp end={15000} duration={5} /><span>+</span></p>:
-                                    <p>15000+</p>    
+                                    <p><CountUp end={35000} duration={5} /><span>+</span></p>:
+                                    <p>35000+</p>
                                 }
                                 </div>
                             </Col>
@@ -115,8 +116,8 @@ export default class Main extends PureComponent{
                                 <div className='insideBox'>
                                     <p>Cups of Coffee</p>
                                     {this.state.enableCounter === true ?
-                                    <p><CountUp end={1000} duration={5} /><span>+</span></p>:
-                                    <p>1000+</p>    
+                                    <p><CountUp end={3000} duration={5} /><span>+</span></p>:
+                                    <p>3000+</p>
                                 }
                                 </div>
                             </Col>
@@ -136,30 +137,30 @@ export default class Main extends PureComponent{
                         </Row>
                     </Col>
                     <div>
-                        <h2 className='centeredText'>Testimonials</h2>
+                        <h2 className='centeredText'>Featured Projects</h2>
                     </div>
-                    <Col sm={12} xs={12} md={12} lg={12}>   
+                    <Col sm={12} xs={12} md={12} lg={12}>
                         <Slider {...settings}>
                             <div className='sliderSettings'>
-                                <Image className='roundedImage' rounded src={require('../assets/kanchan.jpeg')} />
-                                <p className='centeredText'>"Apoorv has the capacity to think of best solutions rather than going the brute force way. He has shown a knack for learning new technologies very quickly. I see him working as a full stack developer very soon in near future."</p>
-                                <p className='centeredTextImg'>Kanchan</p>
-                                <p className='centeredTextImg'>Software Engineer</p>
-                                <p className='centeredTextImg'>HSBC Private Banking</p>
+                                <Image style={{height: 500, width: 700}} rounded src={require('../assets/dealdog.png')} />
+                                <p className='centeredText'>DealDog is the best kept secret of dealjunkies. Our highly trained canine squad is constantly on the hunt for jaw-dropping deals and they are pretty damn good at it. Give us a shot, DealDog is Free and ready to dig deals for you.</p>
+                                <p className='centeredTextImg'>DealDog</p>
+                                <p className='centeredTextImg'>Platform</p>
+                                <p className='centeredTextImg'>Android</p>
                             </div>
                             <div className='sliderSettings'>
-                                <Image className='roundedImage' rounded src={require('../assets/sarthak.jpeg')} />
-                                <p className='centeredText'>"I worked with Apoorv for our college project. I was always in awe with his creativity and hardworking nature. As a team member or a leader, Apoorv earns my highest recommendation."</p>
-                                <p className='centeredTextImg'>Sarthak Negi</p>
-                                <p className='centeredTextImg'>System Engineer</p>
-                                <p className='centeredTextImg'>Infosys</p>
+                                <Image style={{height: 500, width: 700}} src={require('../assets/tixio.png')} />
+                                <p className='centeredText'>Get Organised Today</p>
+                                <p className='centeredTextImg'>Tixio</p>
+                                <p className='centeredTextImg'>Platform</p>
+                                <p className='centeredTextImg'>Web</p>
                             </div>
                             <div className='sliderSettings'>
-                                <Image className='roundedImage' rounded src={require('../assets/manojNegi.jpg')} />
-                                <p className='centeredText'>"A self-learner, pleasant and dynamic personality. He has a keen sense of perfection and knows what he wants to achieve with that."</p>
-                                <p className='centeredTextImg'>Manoj Singh Negi</p>
-                                <p className='centeredTextImg'>Senior Javascript Developer</p>
-                                <p className='centeredTextImg'>ZestGeek Solutions Pvt Ltd</p>
+                                <Image style={{height: 500, width: 700}} src={require('../assets/jumbea.png')} />
+                                <p className='centeredText'>Jumbea lets universities and colleges create a private community for their students and educators.</p>
+                                <p className='centeredTextImg'>Jumbea</p>
+                                <p className='centeredTextImg'>Platform</p>
+                                <p className='centeredTextImg'>Web, Android, IOS</p>
                             </div>
                         </Slider>
                     </Col>
@@ -173,7 +174,7 @@ export default class Main extends PureComponent{
                         <a href='https://github.com/apoorvsingh15' className='textDecorateIcons'><i className="fab fa-github-alt iconSize"></i></a>
                         <a href='https://twitter.com/apoorv_singh15' className='textDecorateIcons'><i className="fab fa-twitter-square iconSize"></i></a>
                     </div>
-                    <p className='textFooter'>Handcrafted by me &copy; 2018</p>
+                    <p className='textFooter'>Handcrafted by me &copy; 2021</p>
                     <p className='textFooter'>Made with <span><a href='https://reactjs.org/' className='textDecorateIcons'>React</a></span></p>
                 </div>
             </Fragment>
