@@ -1,6 +1,5 @@
 import React, {PureComponent, Fragment} from 'react';
-import { Navbar, Image, Nav, Button } from 'react-bootstrap';
-import location from 'react';
+import { Navbar, Image, Button } from 'react-bootstrap';
 import '../css/App.css';
 export default class NavbarComponent extends PureComponent{
     render(){

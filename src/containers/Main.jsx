@@ -1,5 +1,5 @@
 import React, {PureComponent, Fragment} from 'react';
-import {Image, Carousel} from 'react-bootstrap';
+import {Image} from 'react-bootstrap';
 import Slider from "react-slick";
 import CountUp from 'react-countup';
 import NavbarComponent from '../components/NavbarComponent';
@@ -12,7 +12,6 @@ import {
     Row,
     Col
 } from 'react-bootstrap';
-import { SkillBar } from '../components/SkillBar';
 export default class Main extends PureComponent{
     constructor(props){
         super(props);
@@ -129,10 +128,10 @@ export default class Main extends PureComponent{
                     <Col>
                         <Row>
                             <Col md={6} sm={12} xs={12} lg={6}>
-                                <a href='https://medium.com/@apoorv.singh15' target='_blank'><Image className='blogImage' src={require('../assets/medium-logo-lg.jpeg')} /></a>
+                                <a href='https://medium.com/@apoorv.singh15' target='_blank' rel="noopener noreferrer"><Image className='blogImage' src={require('../assets/medium-logo-lg.jpeg')} /></a>
                             </Col>
                             <Col md={6} sm={12} xs={12} lg={6}>
-                                <a href='https://lifeandreact.blogspot.com/' target='_blank'><Image className='blogImage' src={require('../assets/blogger.jpg')} /></a>
+                                <a href='https://lifeandreact.blogspot.com/' target='_blank' rel="noopener noreferrer"><Image className='blogImage' src={require('../assets/blogger.jpg')} /></a>
                             </Col>
                         </Row>
                     </Col>
