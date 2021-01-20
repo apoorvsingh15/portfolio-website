@@ -47,7 +47,7 @@ export default class Main extends PureComponent{
             <Fragment>
                 <NavbarComponent />
                 <TypedComponent />
-                <ImageComponent />
+                {/* <ImageComponent /> */}
                 <About />
                 <Grid>
                     <Row className='rowMargin'>

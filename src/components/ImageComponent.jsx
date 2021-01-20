@@ -6,7 +6,7 @@ export default class ImageComponent extends PureComponent{
             <Fragment>
                 <div className='imageDiv'>
                     {/* <Image src={require('../assets/background.png')} /> */}
-                    <Image style ={{ height: 350, width: 350, borderRadius: 175}} src={require('../assets/avatar.jpg')} />
+                    <Image style ={{ height: 350, width: 'auto'}} src={require('../assets/avatar.jpg')} />
                     {/* <Image src={require('../assets/work.png')} /> */}
                 </div>
             </Fragment>
