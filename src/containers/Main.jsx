@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import CountUp from 'react-countup';
 import NavbarComponent from '../components/NavbarComponent';
 import TypedComponent from '../components/TypedComponent';
-import ImageComponent from '../components/ImageComponent';
+// import ImageComponent from '../components/ImageComponent';
 import About from '../components/About';
 import CardComponent from '../components/CardComponent';
 import {
