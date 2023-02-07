@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from "react";
 import { Image } from "react-bootstrap";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import CountUp from "react-countup";
 import NavbarComponent from "../components/NavbarComponent";
 import TypedComponent from "../components/TypedComponent";
@@ -32,13 +32,13 @@ export default class Main extends PureComponent {
   };
 
   render() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-    };
+    // const settings = {
+    //   dots: true,
+    //   infinite: true,
+    //   speed: 500,
+    //   slidesToShow: 1,
+    //   slidesToScroll: 1,
+    // };
     return (
       <Fragment>
         <NavbarComponent />
