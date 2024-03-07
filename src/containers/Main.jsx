@@ -8,6 +8,7 @@ import TypedComponent from "../components/TypedComponent";
 import About from "../components/About";
 import CardComponent from "../components/CardComponent";
 import { Grid, Row, Col } from "react-bootstrap";
+import ImageComponent from "../components/ImageComponent";
 export default class Main extends PureComponent {
   constructor(props) {
     super(props);
@@ -24,7 +25,7 @@ export default class Main extends PureComponent {
     window.removeEventListener("scroll", this.handleScroll);
   };
   handleScroll = () => {
-    if (window.pageYOffset >= 2000) {
+    if (window.scrollY >= 1100) {
       this.setState({
         enableCounter: true,
       });
@@ -32,18 +33,11 @@ export default class Main extends PureComponent {
   };
 
   render() {
-    // const settings = {
-    //   dots: true,
-    //   infinite: true,
-    //   speed: 500,
-    //   slidesToShow: 1,
-    //   slidesToScroll: 1,
-    // };
     return (
       <Fragment>
         <NavbarComponent />
         <TypedComponent />
-        {/* <ImageComponent /> */}
+        <ImageComponent />
         <About />
         <Grid>
           <Row className="rowMargin">
@@ -110,11 +104,11 @@ export default class Main extends PureComponent {
                   <p>Projects</p>
                   {this.state.enableCounter === true ? (
                     <p>
-                      <CountUp end={25} duration={5} />
+                      <CountUp end={25} duration={10} />
                       <span>+</span>
                     </p>
                   ) : (
-                    <p>25+</p>
+                    <div></div>
                   )}
                 </div>
               </Col>
@@ -123,11 +117,11 @@ export default class Main extends PureComponent {
                   <p>Lines of Code</p>
                   {this.state.enableCounter === true ? (
                     <p>
-                      <CountUp end={35000} duration={5} />
+                      <CountUp end={35000} duration={10} />
                       <span>+</span>
                     </p>
                   ) : (
-                    <p>35000+</p>
+                    <p></p>
                   )}
                 </div>
               </Col>
@@ -136,11 +130,11 @@ export default class Main extends PureComponent {
                   <p>Cups of Coffee</p>
                   {this.state.enableCounter === true ? (
                     <p>
-                      <CountUp end={3000} duration={5} />
+                      <CountUp end={30000} duration={10} />
                       <span>+</span>
                     </p>
                   ) : (
-                    <p>3000+</p>
+                    <p></p>
                   )}
                 </div>
               </Col>
@@ -177,52 +171,6 @@ export default class Main extends PureComponent {
               </Col>
             </Row>
           </Col>
-          {/* <div>
-            <h2 className="centeredText">Featured Projects</h2>
-          </div> */}
-          {/* <Col sm={12} xs={12} md={12} lg={12}>
-            <Slider {...settings}>
-              <div className="sliderSettings">
-                <Image
-                  style={{ height: 500, width: 700 }}
-                  rounded
-                  src={require("../assets/dealdog.png")}
-                />
-                <p className="centeredText">
-                  DealDog is the best kept secret of dealjunkies. Our highly
-                  trained canine squad is constantly on the hunt for
-                  jaw-dropping deals and they are pretty damn good at it. Give
-                  us a shot, DealDog is Free and ready to dig deals for you.
-                </p>
-                <p className="centeredTextImg">DealDog</p>
-                <p className="centeredTextImg">Platform</p>
-                <p className="centeredTextImg">Android</p>
-              </div>
-              <div className="sliderSettings">
-                <Image
-                  style={{ height: 500, width: 700 }}
-                  src={require("../assets/tixio.png")}
-                />
-                <p className="centeredText">Get Organised Today</p>
-                <p className="centeredTextImg">Tixio</p>
-                <p className="centeredTextImg">Platform</p>
-                <p className="centeredTextImg">Web</p>
-              </div>
-              <div className="sliderSettings">
-                <Image
-                  style={{ height: 500, width: 700 }}
-                  src={require("../assets/jumbea.png")}
-                />
-                <p className="centeredText">
-                  Jumbea lets universities and colleges create a private
-                  community for their students and educators.
-                </p>
-                <p className="centeredTextImg">Jumbea</p>
-                <p className="centeredTextImg">Platform</p>
-                <p className="centeredTextImg">Web, Android, IOS</p>
-              </div>
-            </Slider>
-          </Col> */}
         </Grid>
         <div className="aboutDiv upSpace">
           <Image
@@ -258,7 +206,7 @@ export default class Main extends PureComponent {
               <i className="fab fa-twitter-square iconSize"></i>
             </a>
           </div>
-          <p className="textFooter">Handcrafted by me &copy; 2023</p>
+          <p className="textFooter">Handcrafted by me &copy; 2024</p>
           <p className="textFooter">
             Made with{" "}
             <span>
