@@ -1,13 +1,8 @@
-import React, { PureComponent, Fragment } from 'react';
+import React from 'react';
 import Main from './containers/Main';
-class App extends PureComponent {
-  render() {
-    return (
-      <Fragment>
-       <Main />
-      </Fragment>
-    );
-  }
+
+function App() {
+  return <Main />;
 }
 
 export default App;

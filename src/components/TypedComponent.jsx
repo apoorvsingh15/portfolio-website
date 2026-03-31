@@ -1,27 +1,31 @@
-import React, { PureComponent, Fragment } from "react";
-import Typed from "react-typed";
-export default class TypedComponent extends PureComponent {
-  render() {
-    return (
-      <Fragment>
-        <div className="typedDiv">
-          <Typed
-            strings={[
-              "Hello! This is Apoorv Singh",
-              "Front-end Web Developer ",
-              "Specializing in React.js Framework",
-              "React Native Developer",
-              "Mobile Development - IOS, Android",
-            ]}
-            loop
-            typeSpeed={25}
-            backSpeed={40}
-          />
-          <p className="paraStyle">
-            I design and code beautifully simple things, and I love what I do.
-          </p>
-        </div>
-      </Fragment>
-    );
-  }
+import React from 'react';
+import Typed from 'react-typed';
+
+export default function TypedComponent() {
+  return (
+    <section className="hero-section">
+      <p className="hero-eyebrow">👋 Welcome to my portfolio</p>
+      <div className="typed-wrapper">
+        <Typed
+          strings={[
+            "Hello! I'm Apoorv Singh",
+            'Front-end Web Developer',
+            'Specializing in React.js',
+            'React Native Developer',
+            'Mobile Dev – iOS & Android',
+          ]}
+          loop
+          typeSpeed={30}
+          backSpeed={40}
+        />
+      </div>
+      <p className="hero-subtitle">
+        I design and code beautifully simple things, and I love what I do.
+      </p>
+      <div className="hero-cta">
+        <a className="btn-primary" href="#services">See My Work</a>
+        <a className="btn-outline" href="#about">About Me</a>
+      </div>
+    </section>
+  );
 }

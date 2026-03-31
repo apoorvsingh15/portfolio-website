@@ -1,22 +1,15 @@
-import React, {PureComponent, Fragment} from 'react';
-export default class CardComponent extends PureComponent{
-    render(){
-        return(
-            <Fragment>
-                <div className='cardContent'>
-                    {this.props.image}
-                    <p>{this.props.title}</p>
-                    <p>{this.props.about}</p>
-                    <p>{this.props.heading}</p>
-                    <p>{this.props.languages}</p>
-                    {this.props.tools === 'Featured Blogs:' ?
-                        <p className='blogger'>{this.props.tools}</p>
-                    :
-                        <p>{this.props.tools}</p>
-                    }
-                    <p>{this.props.toolName}</p>
-                </div>
-            </Fragment>
-        );
-    }
+import React from 'react';
+
+export default function CardComponent({ image, title, about, heading, languages, tools, toolName }) {
+  return (
+    <div className="card">
+      <img className="card-icon" src={image} alt={title} />
+      <p className="card-title">{title}</p>
+      <p className="card-about">{about}</p>
+      <p className="card-heading">{heading}</p>
+      <p className="card-text">{languages}</p>
+      <p className="card-heading">{tools}</p>
+      <p className="card-text">{toolName}</p>
+    </div>
+  );
 }

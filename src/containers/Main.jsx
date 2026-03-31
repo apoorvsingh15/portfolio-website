@@ -1,222 +1,164 @@
-import React, { PureComponent, Fragment } from "react";
-import { Image } from "react-bootstrap";
-// import Slider from "react-slick";
-import CountUp from "react-countup";
-import NavbarComponent from "../components/NavbarComponent";
-import TypedComponent from "../components/TypedComponent";
-// import ImageComponent from '../components/ImageComponent';
-import About from "../components/About";
-import CardComponent from "../components/CardComponent";
-import { Grid, Row, Col } from "react-bootstrap";
-import ImageComponent from "../components/ImageComponent";
-export default class Main extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      enableCounter: false,
+import React, { useState, useEffect } from 'react';
+import CountUp from 'react-countup';
+import NavbarComponent from '../components/NavbarComponent';
+import TypedComponent from '../components/TypedComponent';
+import ImageComponent from '../components/ImageComponent';
+import About from '../components/About';
+import CardComponent from '../components/CardComponent';
+import { SkillBar } from '../components/SkillBar';
+
+export default function Main() {
+  const [enableCounter, setEnableCounter] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= 800) {
+        setEnableCounter(true);
+      }
     };
-  }
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  componentDidMount = () => {
-    window.addEventListener("scroll", this.handleScroll);
-  };
+  return (
+    <>
+      <NavbarComponent />
 
-  componentWillUnmount = () => {
-    window.removeEventListener("scroll", this.handleScroll);
-  };
-  handleScroll = () => {
-    if (window.scrollY >= 1100) {
-      this.setState({
-        enableCounter: true,
-      });
-    }
-  };
+      {/* Hero */}
+      <TypedComponent />
 
-  render() {
-    return (
-      <Fragment>
-        <NavbarComponent />
-        <TypedComponent />
-        <ImageComponent />
-        <About />
-        <Grid>
-          <Row className="rowMargin">
-            <Col>
-              <Col xs={12} sm={12} md={4} lg={4}>
-                <CardComponent
-                  image={<Image src={require("../assets/frontend-dev.svg")} />}
-                  title={"Front-end Developer"}
-                  about={
-                    "Front-end developer specializing in react.js framework, I work to turn ideas into reality."
-                  }
-                  heading={"Languages I speak:"}
-                  languages={
-                    "HTML5, CSS3, Javascript, React.js, React Native, Node.js, Java & C"
-                  }
-                  tools={"Dev Tools:"}
-                  toolName={
-                    "BitBucket, Bootstrap, CodePen, Github, Gitlab, Material-ui, StackOverflow, Terminal, VS Code"
-                  }
-                />
-              </Col>
-              <Col xs={12} sm={12} md={4} lg={4}>
-                <CardComponent
-                  image={<Image src={require("../assets/mobile-dev.svg")} />}
-                  title={"Mobile Developer"}
-                  about={
-                    "Mobile development - IOS & Android, in React Native, Cross-platform app development."
-                  }
-                  heading={"Mobile Design:"}
-                  languages={
-                    "React Native, Flexbox, Cross-platform app development- IOS & Android"
-                  }
-                  tools={"Dev Tools:"}
-                  toolName={
-                    "Android Studio, Expo, VS Code, XCode, Trello, Slack"
-                  }
-                />
-              </Col>
-              <Col xs={12} sm={12} md={4} lg={4}>
-                <CardComponent
-                  image={<Image src={require("../assets/blogger-dev.svg")} />}
-                  title={"Blogger"}
-                  about={
-                    "A budding blogger. Mainly like to write about life and javascript because I find them similar."
-                  }
-                  heading={"My Blogs:"}
-                  languages={"Medium, Blogger"}
-                  tools={"Featured Blogs:"}
-                  toolName={
-                    "Destination Lost in the journey, Hoisting in Javascript"
-                  }
-                />
-              </Col>
-            </Col>
-          </Row>
-          <div>
-            <h2 className="centeredText">Statistics</h2>
-            <p className="workClass">Work I have accomplished</p>
-          </div>
-          <Col>
-            <Row className="counterBox">
-              <Col xs={12} sm={12} md={4} lg={4}>
-                <div className="insideBox">
-                  <p>Projects</p>
-                  {this.state.enableCounter === true ? (
-                    <p>
-                      <CountUp end={25} duration={10} />
-                      <span>+</span>
-                    </p>
-                  ) : (
-                    <div></div>
-                  )}
-                </div>
-              </Col>
-              <Col xs={12} sm={12} md={4} lg={4}>
-                <div className="insideBox">
-                  <p>Lines of Code</p>
-                  {this.state.enableCounter === true ? (
-                    <p>
-                      <CountUp end={35000} duration={10} />
-                      <span>+</span>
-                    </p>
-                  ) : (
-                    <p></p>
-                  )}
-                </div>
-              </Col>
-              <Col xs={12} sm={12} md={4} lg={4}>
-                <div className="insideBox">
-                  <p>Cups of Coffee</p>
-                  {this.state.enableCounter === true ? (
-                    <p>
-                      <CountUp end={30000} duration={10} />
-                      <span>+</span>
-                    </p>
-                  ) : (
-                    <p></p>
-                  )}
-                </div>
-              </Col>
-            </Row>
-          </Col>
-          <div>
-            <h2 className="centeredText">Checkout My Blogs</h2>
-          </div>
-          <Col>
-            <Row>
-              <Col md={6} sm={12} xs={12} lg={6}>
-                <a
-                  href="https://medium.com/@apoorv.singh15"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image
-                    className="blogImage"
-                    src={require("../assets/medium-logo-lg.jpeg")}
-                  />
-                </a>
-              </Col>
-              <Col md={6} sm={12} xs={12} lg={6}>
-                <a
-                  href="https://lifeandreact.blogspot.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image
-                    className="blogImage"
-                    src={require("../assets/blogger.jpg")}
-                  />
-                </a>
-              </Col>
-            </Row>
-          </Col>
-        </Grid>
-        <div className="aboutDiv upSpace">
-          <Image
-            className="roundedImageFooter"
-            src={require("../assets/logo.jpg")}
-          />
-          <p className="centeredText">
-            Living, learning, & leveling up one day at a time.
-          </p>
-          <div className="socialIcons">
-            <a
-              href="https://www.linkedin.com/in/apoorv-singh-07943622/"
-              className="textDecorateIcons"
-            >
-              <i className="fab fa-linkedin iconSize"></i>
-            </a>
-            <a
-              href="https://www.facebook.com/apoorv.singh.16"
-              className="textDecorateIcons"
-            >
-              <i className="fab fa-facebook iconSize"></i>
-            </a>
-            <a
-              href="https://github.com/apoorvsingh15"
-              className="textDecorateIcons"
-            >
-              <i className="fab fa-github-alt iconSize"></i>
-            </a>
-            <a
-              href="https://twitter.com/apoorv_singh15"
-              className="textDecorateIcons"
-            >
-              <i className="fab fa-twitter-square iconSize"></i>
-            </a>
-          </div>
-          <p className="textFooter">Handcrafted by me &copy; 2024</p>
-          <p className="textFooter">
-            Made with{" "}
-            <span>
-              <a href="https://reactjs.org/" className="textDecorateIcons">
-                React
-              </a>
-            </span>
-          </p>
+      {/* Avatar */}
+      <ImageComponent />
+
+      {/* About */}
+      <About />
+
+      {/* Services */}
+      <section className="services-section" id="services">
+        <div className="section-header">
+          <span className="section-tag">What I Do</span>
+          <h2>Services</h2>
         </div>
-      </Fragment>
-    );
-  }
+        <div className="cards-grid">
+          <CardComponent
+            image={require('../assets/frontend-dev.svg')}
+            title="Front-end Developer"
+            about="Front-end developer specializing in React.js framework. I turn ideas into beautiful, interactive reality."
+            heading="Languages I speak:"
+            languages="HTML5, CSS3, JavaScript, React.js, React Native, Node.js, Java & C"
+            tools="Dev Tools:"
+            toolName="BitBucket, Bootstrap, CodePen, Github, Material-UI, VS Code, Terminal"
+          />
+          <CardComponent
+            image={require('../assets/mobile-dev.svg')}
+            title="Mobile Developer"
+            about="Cross-platform mobile development for iOS & Android using React Native."
+            heading="Mobile Design:"
+            languages="React Native, Flexbox, Cross-platform iOS & Android"
+            tools="Dev Tools:"
+            toolName="Android Studio, Expo, VS Code, XCode, Trello, Slack"
+          />
+          <CardComponent
+            image={require('../assets/blogger-dev.svg')}
+            title="Blogger"
+            about="A passionate blogger writing about life and JavaScript — because I find them surprisingly similar."
+            heading="Platforms:"
+            languages="Medium, Blogger"
+            tools="Featured Blogs:"
+            toolName="Destination Lost in the Journey, Hoisting in JavaScript"
+          />
+        </div>
+      </section>
+
+      {/* Skills */}
+      <SkillBar />
+
+      {/* Stats */}
+      <section className="stats-section" id="stats">
+        <div className="section-header">
+          <span className="section-tag">By the Numbers</span>
+          <h2>Statistics</h2>
+          <p style={{ color: 'var(--color-text-secondary)', marginTop: '0.5rem' }}>Work I have accomplished</p>
+        </div>
+        <div className="stats-grid">
+          <div className="stat-card">
+            <div className="stat-number">
+              {enableCounter ? <CountUp end={25} duration={10} /> : '0'}
+              <span style={{ fontSize: '2rem' }}>+</span>
+            </div>
+            <p className="stat-label">Projects</p>
+          </div>
+          <div className="stat-card">
+            <div className="stat-number">
+              {enableCounter ? <CountUp end={35000} duration={10} /> : '0'}
+              <span style={{ fontSize: '2rem' }}>+</span>
+            </div>
+            <p className="stat-label">Lines of Code</p>
+          </div>
+          <div className="stat-card">
+            <div className="stat-number">
+              {enableCounter ? <CountUp end={30000} duration={10} /> : '0'}
+              <span style={{ fontSize: '2rem' }}>+</span>
+            </div>
+            <p className="stat-label">Cups of Coffee</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Blogs */}
+      <section className="blogs-section" id="blogs">
+        <div className="section-header">
+          <span className="section-tag">Writing</span>
+          <h2>Check Out My Blogs</h2>
+        </div>
+        <div className="blogs-grid">
+          <a
+            className="blog-card"
+            href="https://medium.com/@apoorv.singh15"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={require('../assets/medium-logo-lg.jpeg')} alt="Medium blog" />
+          </a>
+          <a
+            className="blog-card"
+            href="https://lifeandreact.blogspot.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={require('../assets/blogger.jpg')} alt="Blogger blog" />
+          </a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        <img
+          className="footer-avatar"
+          src={require('../assets/logo.jpg')}
+          alt="Apoorv Singh"
+        />
+        <p className="footer-tagline">Living, learning, &amp; leveling up one day at a time.</p>
+        <div className="social-icons">
+          <a href="https://www.linkedin.com/in/apoorv-singh-07943622/" aria-label="LinkedIn">
+            <i className="fab fa-linkedin"></i>
+          </a>
+          <a href="https://www.facebook.com/apoorv.singh.16" aria-label="Facebook">
+            <i className="fab fa-facebook"></i>
+          </a>
+          <a href="https://github.com/apoorvsingh15" aria-label="GitHub">
+            <i className="fab fa-github-alt"></i>
+          </a>
+          <a href="https://twitter.com/apoorv_singh15" aria-label="Twitter">
+            <i className="fab fa-twitter-square"></i>
+          </a>
+        </div>
+        <p className="footer-text">Handcrafted by me &copy; 2026</p>
+        <p className="footer-text">
+          Made with{' '}
+          <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React</a>
+        </p>
+      </footer>
+    </>
+  );
 }

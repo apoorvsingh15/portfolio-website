@@ -1,17 +1,15 @@
-import React, { PureComponent, Fragment} from 'react';
+import React from 'react';
 
-export default class About extends PureComponent{
-    render(){
-        return(
-            <Fragment>
-                <div className='aboutDiv'>
-                    <h3>Hi, I am Apoorv. Nice to meet you.</h3>
-                    <p>A young developer from Lucknow, India, who loves to design and code.</p>
-                    <p>I like to create digital magic in the form of interactive and  </p>
-                    <p>responsive web pages and work on full time as well </p>
-                    <p>as part time projects.</p>
-                </div>
-            </Fragment>
-        );
-    }
+export default function About() {
+  return (
+    <section className="about-section" id="about">
+      <span className="section-tag">About Me</span>
+      <h2>Hi, I'm Apoorv. Nice to meet you.</h2>
+      <p>
+        A passionate developer from Lucknow, India, who loves to design and build things for
+        the web and mobile. I specialize in creating interactive, responsive digital experiences
+        and enjoy working on both full-time and freelance projects.
+      </p>
+    </section>
+  );
 }

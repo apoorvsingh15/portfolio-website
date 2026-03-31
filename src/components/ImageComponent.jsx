@@ -1,18 +1,15 @@
-import React, { PureComponent, Fragment } from "react";
-import { Image } from "react-bootstrap";
-export default class ImageComponent extends PureComponent {
-  render() {
-    return (
-      <Fragment>
-        <div className="imageDiv">
-          {/* <Image src={require('../assets/background.png')} /> */}
-          <Image
-            style={{ height: 350, width: "auto" }}
-            src={require("../assets/avatar.png")}
-          />
-          {/* <Image src={require('../assets/work.png')} /> */}
-        </div>
-      </Fragment>
-    );
-  }
+import React from 'react';
+
+export default function ImageComponent() {
+  return (
+    <div className="avatar-section">
+      <div className="avatar-ring">
+        <img
+          className="avatar-img"
+          src={require('../assets/avatar.png')}
+          alt="Apoorv Singh"
+        />
+      </div>
+    </div>
+  );
 }
