@@ -6,12 +6,18 @@ import ImageComponent from '../components/ImageComponent';
 import About from '../components/About';
 import CardComponent from '../components/CardComponent';
 import { SkillBar } from '../components/SkillBar';
+import frontendDevImg from '../assets/frontend-dev.svg';
+import mobileDevImg from '../assets/mobile-dev.svg';
+import bloggerDevImg from '../assets/blogger-dev.svg';
+import mediumLogoImg from '../assets/medium-logo-lg.jpeg';
+import bloggerImg from '../assets/blogger.jpg';
+import logoImg from '../assets/logo.jpg';
 
-export default function Main() {
-  const [enableCounter, setEnableCounter] = useState(false);
+export default function Main(): React.JSX.Element {
+  const [enableCounter, setEnableCounter] = useState<boolean>(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (): void => {
       if (window.scrollY >= 800) {
         setEnableCounter(true);
       }
@@ -41,7 +47,7 @@ export default function Main() {
         </div>
         <div className="cards-grid">
           <CardComponent
-            image={require('../assets/frontend-dev.svg')}
+            image={frontendDevImg}
             title="Front-end Developer"
             about="Front-end developer specializing in React.js framework. I turn ideas into beautiful, interactive reality."
             heading="Languages I speak:"
@@ -50,7 +56,7 @@ export default function Main() {
             toolName="BitBucket, Bootstrap, CodePen, Github, Material-UI, VS Code, Terminal"
           />
           <CardComponent
-            image={require('../assets/mobile-dev.svg')}
+            image={mobileDevImg}
             title="Mobile Developer"
             about="Cross-platform mobile development for iOS & Android using React Native."
             heading="Mobile Design:"
@@ -59,7 +65,7 @@ export default function Main() {
             toolName="Android Studio, Expo, VS Code, XCode, Trello, Slack"
           />
           <CardComponent
-            image={require('../assets/blogger-dev.svg')}
+            image={bloggerDevImg}
             title="Blogger"
             about="A passionate blogger writing about life and JavaScript — because I find them surprisingly similar."
             heading="Platforms:"
@@ -118,7 +124,7 @@ export default function Main() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={require('../assets/medium-logo-lg.jpeg')} alt="Medium blog" />
+            <img src={mediumLogoImg} alt="Medium blog" />
           </a>
           <a
             className="blog-card"
@@ -126,7 +132,7 @@ export default function Main() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={require('../assets/blogger.jpg')} alt="Blogger blog" />
+            <img src={bloggerImg} alt="Blogger blog" />
           </a>
         </div>
       </section>
@@ -135,7 +141,7 @@ export default function Main() {
       <footer className="footer">
         <img
           className="footer-avatar"
-          src={require('../assets/logo.jpg')}
+          src={logoImg}
           alt="Apoorv Singh"
         />
         <p className="footer-tagline">Living, learning, &amp; leveling up one day at a time.</p>

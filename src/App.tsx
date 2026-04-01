@@ -1,7 +1,7 @@
 import React from 'react';
 import Main from './containers/Main';
 
-function App() {
+function App(): React.JSX.Element {
   return <Main />;
 }
 

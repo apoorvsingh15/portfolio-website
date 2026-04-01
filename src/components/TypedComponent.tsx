@@ -1,7 +1,7 @@
 import React from 'react';
 import Typed from 'react-typed';
 
-export default function TypedComponent() {
+export default function TypedComponent(): React.JSX.Element {
   return (
     <section className="hero-section">
       <p className="hero-eyebrow">👋 Welcome to my portfolio</p>

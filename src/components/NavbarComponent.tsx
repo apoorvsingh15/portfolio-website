@@ -1,11 +1,13 @@
 import React from 'react';
 import '../css/App.css';
+import logoImg from '../assets/logo.jpg';
+import resumePdf from '../assets/Apoorv__Singh_-_Software_Developer.pdf';
 
-export default function NavbarComponent() {
+export default function NavbarComponent(): React.JSX.Element {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src={require('../assets/logo.jpg')} alt="Apoorv Singh" />
+        <img src={logoImg} alt="Apoorv Singh" />
       </div>
       <ul className="navbar-links">
         <li><a href="#about">About</a></li>
@@ -15,7 +17,7 @@ export default function NavbarComponent() {
       </ul>
       <a
         className="btn-resume"
-        href={require('../assets/Apoorv__Singh_-_Software_Developer.pdf')}
+        href={resumePdf}
         target="_blank"
         rel="noopener noreferrer"
       >

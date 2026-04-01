@@ -1,17 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const SKILLS = [
+interface Skill {
+  name: string;
+  level: number;
+}
+
+const SKILLS: Skill[] = [
   { name: 'React.js', level: 90 },
+  { name: 'TypeScript', level: 82 },
   { name: 'JavaScript', level: 85 },
   { name: 'HTML5 & CSS3', level: 88 },
   { name: 'React Native', level: 78 },
   { name: 'Node.js', level: 65 },
-  { name: 'Java', level: 55 },
 ];
 
-export function SkillBar() {
-  const [animated, setAnimated] = useState(false);
-  const sectionRef = useRef(null);
+export function SkillBar(): React.JSX.Element {
+  const [animated, setAnimated] = useState<boolean>(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

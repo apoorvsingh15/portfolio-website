@@ -1,6 +1,24 @@
 import React from 'react';
 
-export default function CardComponent({ image, title, about, heading, languages, tools, toolName }) {
+interface CardProps {
+  image: string;
+  title: string;
+  about: string;
+  heading: string;
+  languages: string;
+  tools: string;
+  toolName: string;
+}
+
+export default function CardComponent({
+  image,
+  title,
+  about,
+  heading,
+  languages,
+  tools,
+  toolName,
+}: CardProps): React.JSX.Element {
   return (
     <div className="card">
       <img className="card-icon" src={image} alt={title} />
