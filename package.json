@@ -2,20 +2,23 @@
   "name": "my-website",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
-    "react": "^16.4.2",
-    "react-bootstrap": "^0.32.3",
-    "react-countup": "^4.0.0-alpha.6",
-    "react-dom": "^16.4.2",
-    "react-particles-js": "^2.3.0",
-    "react-scripts": "1.1.5",
-    "react-slick": "^0.23.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-countup": "^6.5.3",
     "react-typed": "^1.0.9"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.4"
   }
 }
