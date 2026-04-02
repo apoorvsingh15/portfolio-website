@@ -215,8 +215,4 @@ img {
   display: block;
 }
 
-/* Ensure content sits above canvas */
-#root > * {
-  position: relative;
-  z-index: 1;
-}
+
