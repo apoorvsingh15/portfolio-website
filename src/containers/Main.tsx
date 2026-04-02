@@ -15,9 +15,33 @@ import mediumLogoImg from '../assets/medium-logo-lg.jpeg';
 import bloggerImg from '../assets/blogger.jpg';
 import logoImg from '../assets/logo.jpg';
 
+function getInitialTheme(): boolean {
+  try {
+    const saved = localStorage.getItem('darkMode');
+    if (saved !== null) return saved === 'true';
+  } catch (_) { /* ignore */ }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
 export default function Main(): React.JSX.Element {
   const [enableCounter, setEnableCounter] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(getInitialTheme);
   const cursorRef = useRef<HTMLDivElement>(null);
+
+  // Apply theme to <html> element
+  useEffect(() => {
+    const html = document.documentElement;
+    if (darkMode) {
+      html.removeAttribute('data-theme');
+    } else {
+      html.setAttribute('data-theme', 'light');
+    }
+    try {
+      localStorage.setItem('darkMode', String(darkMode));
+    } catch (_) { /* ignore */ }
+  }, [darkMode]);
+
+  const toggleTheme = (): void => setDarkMode(d => !d);
 
   // Scroll-based counter trigger
   useEffect(() => {
@@ -67,7 +91,7 @@ export default function Main(): React.JSX.Element {
       {/* Cursor glow */}
       <div id="cursor-glow" ref={cursorRef} />
 
-      <NavbarComponent />
+      <NavbarComponent darkMode={darkMode} toggleTheme={toggleTheme} />
 
       {/* Hero */}
       <TypedComponent />
@@ -189,22 +213,22 @@ export default function Main(): React.JSX.Element {
         <div className="stats-grid">
           <div className="stat-card reveal reveal-d1">
             <div className="stat-number">
-              {enableCounter ? <CountUp end={25} duration={10} /> : '0'}
-              <span style={{ fontSize: '2rem' }}>+</span>
+              {enableCounter ? <CountUp end={50} duration={6} separator="," /> : '0'}
+              <span>+</span>
             </div>
             <p className="stat-label">Projects</p>
           </div>
           <div className="stat-card reveal reveal-d2">
             <div className="stat-number">
-              {enableCounter ? <CountUp end={35000} duration={10} /> : '0'}
-              <span style={{ fontSize: '2rem' }}>+</span>
+              {enableCounter ? <CountUp end={500000} duration={8} separator="," /> : '0'}
+              <span>+</span>
             </div>
             <p className="stat-label">Lines of Code</p>
           </div>
           <div className="stat-card reveal reveal-d3">
             <div className="stat-number">
-              {enableCounter ? <CountUp end={30000} duration={10} /> : '0'}
-              <span style={{ fontSize: '2rem' }}>+</span>
+              {enableCounter ? <CountUp end={30000} duration={8} separator="," /> : '0'}
+              <span>+</span>
             </div>
             <p className="stat-label">Cups of Coffee</p>
           </div>
