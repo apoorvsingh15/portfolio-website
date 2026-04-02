@@ -5,25 +5,45 @@
 }
 
 :root {
-  --color-bg: #0f0f1a;
-  --color-bg-secondary: #16162a;
-  --color-surface: rgba(255, 255, 255, 0.05);
-  --color-surface-hover: rgba(255, 255, 255, 0.09);
-  --color-border: rgba(255, 255, 255, 0.1);
+  /* ── Colours ── */
+  --color-bg: #07071a;
+  --color-bg-secondary: #0d0d22;
+  --color-surface: rgba(255, 255, 255, 0.04);
+  --color-surface-hover: rgba(255, 255, 255, 0.08);
+  --color-border: rgba(255, 255, 255, 0.08);
+
   --color-accent: #7c3aed;
   --color-accent-light: #a78bfa;
-  --color-accent-glow: rgba(124, 58, 237, 0.4);
-  --color-text-primary: #f1f0ff;
-  --color-text-secondary: #a1a1b5;
-  --color-text-muted: #6b6b80;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Space Grotesk', 'Inter', sans-serif;
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 40px rgba(124, 58, 237, 0.2);
+  --color-accent-glow: rgba(124, 58, 237, 0.45);
+
+  --color-cyan: #06b6d4;
+  --color-cyan-light: #67e8f9;
+  --color-cyan-glow: rgba(6, 182, 212, 0.4);
+
+  --color-text-primary: #f0eeff;
+  --color-text-secondary: #9898b8;
+  --color-text-muted: #5c5c78;
+
+  /* ── Glass tokens ── */
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-shine: rgba(255, 255, 255, 0.06);
+  --glass-blur: 22px;
+
+  /* ── Typography ── */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Syne', 'Plus Jakarta Sans', sans-serif;
+
+  /* ── Shape ── */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-xl: 36px;
+
+  /* ── Shadow / glow ── */
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 50px rgba(124, 58, 237, 0.25), 0 0 80px rgba(6, 182, 212, 0.12);
+
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -31,6 +51,7 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ── Animated orb background ── */
 body {
   font-family: var(--font-sans);
   background-color: var(--color-bg);
@@ -40,7 +61,103 @@ body {
   -moz-osx-font-smoothing: grayscale;
   max-width: 2200px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(80px);
+}
+
+body::before {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.22) 0%, transparent 70%);
+  top: -200px;
+  left: -150px;
+  animation: orbDrift1 18s ease-in-out infinite alternate;
+}
+
+body::after {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.18) 0%, transparent 70%);
+  bottom: -150px;
+  right: -100px;
+  animation: orbDrift2 22s ease-in-out infinite alternate;
+}
+
+@keyframes orbDrift1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(120px, 80px) scale(1.15); }
+  66%  { transform: translate(-60px, 160px) scale(0.9); }
+  100% { transform: translate(80px, -60px) scale(1.1); }
+}
+
+@keyframes orbDrift2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(-100px, -80px) scale(1.2); }
+  66%  { transform: translate(60px, -140px) scale(0.95); }
+  100% { transform: translate(-80px, 60px) scale(1.05); }
+}
+
+/* ── Gradient text animation ── */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-accent-light), var(--color-cyan-light), var(--color-accent-light));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 4s ease infinite;
+}
+
+/* ── Shimmer keyframe (used on dividers) ── */
+@keyframes shimmerMove {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ── Cursor glow trail ── */
+#cursor-glow {
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: left 0.12s ease, top 0.12s ease;
+}
+
+/* ── Global utility: reveal on scroll ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1), transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger helpers */
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+.reveal-d4 { transition-delay: 0.4s; }
 
 a {
   color: inherit;
@@ -50,4 +167,10 @@ a {
 img {
   max-width: 100%;
   display: block;
+}
+
+/* Ensure content sits above canvas */
+#root > * {
+  position: relative;
+  z-index: 1;
 }
