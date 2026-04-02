@@ -3,7 +3,12 @@ import '../css/App.css';
 import logoImg from '../assets/logo.jpg';
 import resumePdf from '../assets/Apoorv__Singh_-_Software_Developer.pdf';
 
-export default function NavbarComponent(): React.JSX.Element {
+interface NavbarProps {
+  darkMode: boolean;
+  toggleTheme: () => void;
+}
+
+export default function NavbarComponent({ darkMode, toggleTheme }: NavbarProps): React.JSX.Element {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const closeMenu = (): void => setMenuOpen(false);
@@ -21,7 +26,14 @@ export default function NavbarComponent(): React.JSX.Element {
           <li><a href="#stats">Stats</a></li>
           <li><a href="#blogs">Blogs</a></li>
         </ul>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <button
+            className="btn-theme"
+            aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            onClick={toggleTheme}
+          >
+            <i className={darkMode ? 'fas fa-sun' : 'fas fa-moon'} />
+          </button>
           <a
             className="btn-resume"
             href={resumePdf}
