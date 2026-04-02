@@ -5,7 +5,7 @@ export default function TypedComponent(): React.JSX.Element {
   return (
     <section className="hero-section">
       <p className="hero-eyebrow">👋 Welcome to my portfolio</p>
-      <div className="typed-wrapper">
+      <div className="typed-wrapper gradient-text">
         <Typed
           strings={[
             "Hello! I'm Apoorv Singh",
@@ -24,7 +24,7 @@ export default function TypedComponent(): React.JSX.Element {
       </p>
       <div className="hero-cta">
         <a className="btn-primary" href="#services">See My Work</a>
-        <a className="btn-outline" href="#about">About Me</a>
+        <a className="btn-outline" href="#game">Play a Game</a>
       </div>
     </section>
   );
